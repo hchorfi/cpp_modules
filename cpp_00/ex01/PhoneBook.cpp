@@ -60,15 +60,15 @@ void    PhoneBook::GetCommand(void)
 
 void	PhoneBook::AddContact(void)
 {
-    int i = 0;
     std::string infos;
-    if (this->ContactAdded > 8)
+    if (this->ContactAdded == NumOfContacts)
+    {
         this->ContactAdded = 0;
+    }
     std::cout << "Please Enter The informations for the Contact Number " << this->ContactAdded + 1 << "\n";
     std::cout << "Enter the First Name:\n";
     std::cin >> infos;
     this->InContact[this->ContactAdded].SetString(infos, FIRST);
-    this->InContact[this->ContactAdded].id += i + 1;
     std::cout << "Enter the Last Name:\n";
     std::cin >> infos;
     this->InContact[this->ContactAdded].SetString(infos, LAST);
@@ -81,6 +81,8 @@ void	PhoneBook::AddContact(void)
     std::cout << "Enter the Secret:\n";
     std::cin >> infos;
     this->InContact[this->ContactAdded].SetString(infos, DARKEST);
+    if (this->InContact[this->ContactAdded].id > NumOfContacts)
+    this->InContact[this->ContactAdded].id += this->ContactAdded + 1;
     this->ContactAdded++;
 }
 
@@ -105,7 +107,7 @@ void	PhoneBook::SearchContact(void)
 
     this->PrintSearchHeader();
 
-    while (i < this->ContactAdded)
+    while (i < NumOfContacts)
     {
         std::cout << std::right << std::setw(10) << this->InContact[i].id;
         std::cout << " | ";
