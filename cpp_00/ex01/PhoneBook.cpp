@@ -30,31 +30,23 @@ PhoneBook::~PhoneBook(void)
 
 void    PhoneBook::GetCommand(void)
 {
-    std::cout << "Please Enter Your Command:\n";
+    std::cout << Green << "Please Enter Your Command: ADD-SEARCH-EXIT\n" << Reset;
     while (std::getline(std::cin, this->command))
     {
         if (!(this->command.compare("ADD")))
-        {
             this->AddContact();
-        }
         else if (!(this->command.compare("SEARCH")))
-        {
             this->SearchContact();
-        }
         else if (!(this->command.compare("EXIT")))
-        {
             break ;
-        }
         else if (!(this->command.compare("")))
-        {
             continue ;
-        }
         else
         {
-            std::cout << "(�_�) : Please Enter A Valid Command: 'ADD, SEARCH or EXIT'\n";
+            std::cout << Red << "(�_�) : Please Enter A Valid Command: 'ADD, SEARCH or EXIT'\n" << Reset;
             continue ;
         }
-        std::cout << "Please Enter Your Command:\n";
+        std::cout << Green << "Please Enter Your Command: ADD-SEARCH-EXIT\n" << Reset;
     }
 }
 
@@ -62,32 +54,30 @@ void	PhoneBook::AddContact(void)
 {
     std::string infos;
     if (this->ContactAdded == NumOfContacts)
-    {
         this->ContactAdded = 0;
-    }
-    std::cout << "Please Enter The informations for the Contact Number " << this->ContactAdded + 1 << "\n";
-    std::cout << "Enter the First Name:\n";
+    std::cout << Blue << "\nPlease Enter The informations for the New Contact:\n" << Reset;
+    std::cout << Blue << "\nEnter the First Name:\n" << Reset;
     std::cin >> infos;
     this->InContact[this->ContactAdded].SetString(infos, FIRST);
-    std::cout << "Enter the Last Name:\n";
+    std::cout << Blue << "\nEnter the Last Name:\n" << Reset;
     std::cin >> infos;
     this->InContact[this->ContactAdded].SetString(infos, LAST);
-    std::cout << "Enter the Phone Number:\n";
+    std::cout << Blue << "\nEnter the Phone Number:\n" << Reset;
     std::cin >> infos;
     this->InContact[this->ContactAdded].SetString(infos, PHONE);
-    std::cout << "Enter the Nickname:\n";
+    std::cout << Blue << "\nEnter the Nickname:\n" << Reset;
     std::cin >> infos;
     this->InContact[this->ContactAdded].SetString(infos, NICK);
-    std::cout << "Enter the Secret:\n";
+    std::cout << Blue << "\nEnter the Secret:\n" << Reset;
     std::cin >> infos;
     this->InContact[this->ContactAdded].SetString(infos, DARKEST);
-    if (this->InContact[this->ContactAdded].id > NumOfContacts)
-    this->InContact[this->ContactAdded].id += this->ContactAdded + 1;
+    this->InContact[this->ContactAdded].id = this->ContactAdded + 1;
     this->ContactAdded++;
 }
 
 void    PhoneBook::PrintSearchHeader(void) const
 {
+    std::cout << "\n";
     std::cout << std::right << std::setw(10) << "Index";
     std::cout << " | ";
     std::cout << std::right << std::setw(10) << "first name";
@@ -100,6 +90,22 @@ void    PhoneBook::PrintSearchHeader(void) const
     std::cout << "\n\n";
 }
 
+void    PhoneBook::PrintContactInfo(int index) const
+{
+    if (this->InContact[index - 1].id != 0 && this->InContact[index - 1].id == index)
+    {
+        std::cout << "\n";
+        std::cout << std::left << std::setw(20) << "First Name" << ":" << this->InContact[index - 1].GetString(FIRST) << "\n";
+        std::cout << std::left << std::setw(20) << "Last Name" << ":" << this->InContact[index - 1].GetString(LAST) << "\n";
+        std::cout << std::left << std::setw(20) << "Nickname" << ":" << this->InContact[index - 1].GetString(NICK) << "\n";
+        std::cout << std::left << std::setw(20) << "Phone Number" << ":" << this->InContact[index - 1].GetString(PHONE) << "\n";
+        std::cout << std::left << std::setw(20) << "Darckest Secret" << ":" << this->InContact[index - 1].GetString(DARKEST) << "\n";
+        std::cout << "\n";
+    }
+    else
+        std::cout << Red << "\nNo Contact Found\n" << Reset;
+}
+
 void	PhoneBook::SearchContact(void)
 {
     int i = 0;
@@ -107,7 +113,7 @@ void	PhoneBook::SearchContact(void)
 
     this->PrintSearchHeader();
 
-    while (i < NumOfContacts)
+    while (i < NumOfContacts && this->InContact[i].id > 0)
     {
         std::cout << std::right << std::setw(10) << this->InContact[i].id;
         std::cout << " | ";
@@ -128,8 +134,19 @@ void	PhoneBook::SearchContact(void)
         i++;
     }
 
-    std::cout << "Please Insert Contact's Index :\n";
+    std::cout << Yellow << "\nPlease Insert Contact's Index : 1->"<< NumOfContacts <<"\n" << Reset;
     std::cin >> index;
-    if (index)
-        std::cout << index;
+    if (std::cin.good())
+    {
+        if (index < 0 || index > NumOfContacts)
+            std::cout << Red << "\nOut Of Range\n" << Reset;
+        else
+            this->PrintContactInfo(index);
+    }
+    else
+    {
+        std::cin.clear();
+        std::cin.ignore(2147483647, '\n');
+        std::cout << Red << "Wrong input\n" << Reset;
+    }    
 }

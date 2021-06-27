@@ -21,6 +21,7 @@ class PhoneBook {
 		void	AddContact(void);
 		void	SearchContact(void);
 		void	PrintSearchHeader(void) const;
+		void	PrintContactInfo(int index) const;
 
 	private:
 
