@@ -1,6 +1,8 @@
 NAME = telebootik
 
-SRCS = telebootik.cpp
+SRCS = telebootik.cpp \
+		PhoneBook.cpp \
+		Contact.cpp
 
 FLAGS = -Wall -Wextra -Werror
 
