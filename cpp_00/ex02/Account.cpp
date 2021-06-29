@@ -1,8 +1,10 @@
 #include "Account.hpp"
 #include <iostream>
+#include <iomanip>
 
 Account::Account(int initial_deposit)
 {
+    Account::_displayTimestamp();
     this->_accountIndex = Account::_nbAccounts;
     this->_amount = initial_deposit;
     this->_nbDeposits = 0;
@@ -102,7 +104,11 @@ void    Account::displayStatus(void) const
 
 void    Account::_displayTimestamp(void)
 {
+    char buf[70];
+    std::time_t newt = std::chrono::system_clock::to_time_t(
+                           std::chrono::system_clock::now());
 
+    std::cout << newt << " ";
 }
 
 int     Account::_nbAccounts = 0;

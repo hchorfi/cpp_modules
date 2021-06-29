@@ -1,8 +1,9 @@
-NAME = telebootik
+NAME = Zombie
 
-SRCS = telebootik.cpp \
-		PhoneBook.cpp \
-		Contact.cpp
+SRCS = main.cpp\
+		Zombie.cpp\
+		newZombie.cpp\
+		randomChump.cpp
 
 FLAGS = -Wall -Wextra -Werror
 

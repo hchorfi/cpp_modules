@@ -1,8 +1,8 @@
-NAME = telebootik
+NAME = ZombieHorde
 
-SRCS = telebootik.cpp \
-		PhoneBook.cpp \
-		Contact.cpp
+SRCS = main.cpp\
+		Zombie.cpp\
+		ZombieHorde.cpp
 
 FLAGS = -Wall -Wextra -Werror
 
