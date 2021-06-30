@@ -1,8 +1,8 @@
 #include "Zombie.hpp"
 
-Zombie::Zombie()
+Zombie::Zombie(void)
 {
-    this->announce();
+    
 }
 
 Zombie::~Zombie(void)
