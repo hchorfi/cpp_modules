@@ -33,14 +33,31 @@ int main(int argc, char **argv)
     if (inFile.eof() || s1.empty() || s2.empty())
     {
         inFile.close();
+        outFile.close();
         std::cout << Red << "File input can't be empty nor the second or the last argument\n" << Reset ;
         return 1;
     }
 
     argc = 0;
     std::string line;
+    std::size_t found;
+
     while (std::getline(inFile, line))
+    {
+        while ((found = line.find(s1)) != std::string::npos)
+        {
+            line.erase(found, s1.length());
+            line.insert(found, s2);
+        }
         outFile << line << "\n";
+    }
     inFile.close();
+    outFile.close();
     return 0;
 }
+
+//find
+//substr
+//erase
+//insert
+

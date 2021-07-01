@@ -1,6 +1,7 @@
-NAME = replace
+NAME = karen
 
 SRCS = main.cpp\
+		Karen.cpp
 
 FLAGS = -Wall -Wextra -Werror
 
@@ -15,7 +16,3 @@ fclean:
 	rm -rf $(NAME)
 
 re :fclean all
-
-# test kjhkk hkh kh kh khkh tesr ljkh jh
-# jhkljh kjhk jhtestljhl jljh ljh ljh lh test
-# test

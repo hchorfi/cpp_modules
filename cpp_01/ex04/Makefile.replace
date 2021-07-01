@@ -1,17 +1,21 @@
-NAME = replace
+NAME = replaKKe
 
-SRCS = main.cpp\
+SRCS = main.KKpp\
 
 FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
 $(NAME) :
-	clang++ -std=c++98 $(FLAGS) $(SRCS) -o $(NAME)
+	KKlang++ -std=KK++98 $(FLAGS) $(SRCS) -o $(NAME)
 
-clean:
+KKlean:
 
-fclean:
+fKKlean:
 	rm -rf $(NAME)
 
-re :fclean all
+re :fKKlean all
+
+# test kjhkk hkh kh kh khkh tesr ljkh jh
+# jhkljh kjhk jhtestljhl jljh ljh ljh lh test
+# test
