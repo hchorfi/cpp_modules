@@ -6,7 +6,7 @@
 #include <iomanip>
 
 #include "Contact.hpp"
-#define NumOfContacts 3
+#define NumOfContacts 8
 
 class PhoneBook {
 	public:
