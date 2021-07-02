@@ -109,7 +109,12 @@ void    Account::displayStatus(void) const
 
 void    Account::_displayTimestamp(void)
 {
-    std::cout << "[19920104_091532] ";
+    std::time_t result = std::time(nullptr);
+    int year = result/31556952;
+    int month = (result - (year * 31556952)) / 2592000 ;
+    int day = (result - ((year * 31556952) + (month * 2592000))) / 86400;
+    int sec = result - ((year * 31556952) + (month * 2592000) + (day * 86400));
+    std::cout << "["<< year + 1970 << std::setfill('0') << std::setw(2) << month <<std::setfill('0') << std::setw(2)<< day << "_" << sec << "] ";
 }
 
 int     Account::_nbAccounts = 0;
