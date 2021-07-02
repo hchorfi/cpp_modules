@@ -32,5 +32,6 @@ void    Karen::_error(void)
 
 void Karen::complain( std::string level )
 {
+    void    (*fptr(void))[] = {};
     
 }
