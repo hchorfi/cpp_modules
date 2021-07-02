@@ -3,7 +3,6 @@
 HumanA::HumanA(std::string name, Weapon &weaponHumanA) : HumanAweapon(weaponHumanA)
 {
     this->HumanAname = name;
-    //this->HumanAweapon = weaponHumanA;
 }
 
 void    HumanA::attack(void)
