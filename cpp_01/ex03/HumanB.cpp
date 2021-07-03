@@ -17,7 +17,7 @@ void    HumanB::attack(void)
     std::cout << "\n";
 }
 
-void    HumanB::setWeapon(Weapon HumanBweapon)
+void    HumanB::setWeapon(Weapon &HumanBweapon)
 {
     this->_HumanBweapon = &HumanBweapon;
 }
