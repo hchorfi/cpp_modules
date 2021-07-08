@@ -2,7 +2,6 @@
 
 Contact::Contact(void)
 {
-    //std::cout << this.id << " contact constructor called\n";
     this->id = 0;
     return;
 }

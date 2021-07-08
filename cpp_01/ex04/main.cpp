@@ -14,40 +14,49 @@
 
 int main(int argc, char **argv)
 {
-    std::string s1 = argv[2];
-    std::string s2 = argv[3];
-    std::string inName = argv[1];
-    std::string outName = inName + ".replace";
     if (argc != 4)
     {
         std::cout << Red << "You Need To Enter 3 Arguments: ./replace input word word\n" << Reset;
         return 1;
     }
+    std::string s1 = argv[2];
+    std::string s2 = argv[3];
+    std::string inName = argv[1];
+    std::string outName = inName + ".replace";
     std::ifstream inFile(argv[1]);
-    std::ofstream outFile(outName);
     if (!inFile.is_open())
     {
         std::cout << Red << "Error opening file\n" << Reset ;
+        inFile.close();
         return 1;
     }
-    if (inFile.eof() || s1.empty() || s2.empty())
+    if (inFile.peek() == EOF || s1.empty() || s2.empty())
     {
         inFile.close();
-        outFile.close();
         std::cout << Red << "File input can't be empty nor the second or the last argument\n" << Reset ;
         return 1;
     }
-
+    std::ofstream outFile(outName);
     argc = 0;
     std::string line;
     std::size_t found;
-
+    if (s1 == s2)
+    {
+        while (std::getline(inFile, line))
+            outFile << line << "\n";
+        inFile.close();
+        outFile.close();
+        return 0;
+    }
+    int len;
     while (std::getline(inFile, line))
     {
-        while ((found = line.find(s1)) != std::string::npos)
+        len = 0;
+        while ((found = line.find(s1, len)) != std::string::npos)
         {
             line.erase(found, s1.length());
             line.insert(found, s2);
+            len = found + s2.length(); 
         }
         outFile << line << "\n";
     }

@@ -7,7 +7,7 @@ FLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME) :
-	clang++ $(FLAGS) $(SRCS) -o $(NAME)
+	clang++ -std=c++98 $(FLAGS) $(SRCS) -o $(NAME)
 
 clean:
 
