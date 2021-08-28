@@ -1,0 +1,49 @@
+#include "DiamondTrap.hpp"
+
+DiamondTrap::DiamondTrap()
+{
+    std::cout << "Diamond default constructor\n";
+    this->_HitPoints = FragTrap::_HitPoints;
+    this->_EnergyPoints = ScavTrap::_EnergyPoints;
+    this->_AttackDamage = FragTrap::_AttackDamage;
+}
+
+DiamondTrap::DiamondTrap(std::string name) : _Name(name)
+{
+    ClapTrap::_Name = name + "_clap_name";
+    this->_HitPoints = FragTrap::_HitPoints;
+    this->_EnergyPoints = ScavTrap::_EnergyPoints;
+    this->_AttackDamage = FragTrap::_AttackDamage;
+}
+
+DiamondTrap::DiamondTrap(const DiamondTrap& copy)
+{
+    std::cout << "DiamondTrap copy constructor\n";
+    *this = copy;
+}
+
+DiamondTrap& DiamondTrap::operator = (const DiamondTrap& other)
+{
+    std::cout << "DiamondTrap asigne constructor\n";
+    if (this != &other)
+    {
+        this->_Name = other._Name;
+        this->_HitPoints = other._HitPoints;
+        this->_EnergyPoints = other._EnergyPoints;
+        this->_AttackDamage = other._AttackDamage;
+    }
+    return *this;
+}
+
+DiamondTrap::~DiamondTrap()
+{
+    std::cout << "DiamondTrap deconstructor\n";
+}
+
+void DiamondTrap::whoAmI()
+{
+    std::cout << "DiamondTrap name : " << this->_Name << "\n";
+    std::cout << "ClapTrap name : " << ClapTrap::_Name << "\n";
+}
+
+

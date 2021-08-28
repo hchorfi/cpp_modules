@@ -6,7 +6,7 @@ SRCS = ScavTrap.cpp\
 		DiamondTrap.cpp\
 		main.cpp
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -Wshadow -Wno-shadow
 
 all: $(NAME)
 

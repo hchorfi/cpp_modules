@@ -3,6 +3,9 @@
 ScavTrap::ScavTrap()
 {
     std::cout << "Default ScavTrap constractor called\n";
+    this->_HitPoints = 100;
+    this->_EnergyPoints = 50;
+    this->_AttackDamage = 20;
 }
 
 ScavTrap::ScavTrap(std::string Name)

@@ -3,6 +3,9 @@
 ClapTrap::ClapTrap()
 {
     std::cout << "Default Claptrap constractor called\n";
+    this->_HitPoints = 10;
+    this->_EnergyPoints = 10;
+    this->_AttackDamage = 0;
 }
 
 ClapTrap::ClapTrap(std::string Name) : _Name(Name)
