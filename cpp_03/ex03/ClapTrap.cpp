@@ -41,7 +41,7 @@ ClapTrap::ClapTrap(std::string Name) : _Name(Name)
     std::cout << std::left << std::setw(20) <<"Name : " << this->_Name << "\n";
     std::cout << std::left << std::setw(20) <<"EnergyPoints : " << this->_EnergyPoints << "\n";
     std::cout << std::left << std::setw(20) <<"HitPoints : " << this->_HitPoints << "\n";
-    std::cout << std::left << std::setw(20) <<"AttackDamage : " << this->_AttackDamage << "\n\n";
+    std::cout << std::left << std::setw(20) <<"AttackDamage : " << this->_AttackDamage << "\n";
     std::cout << "\n\n";
 }
 
@@ -107,10 +107,6 @@ void    ClapTrap::attack(std::string const & target)
     //this->_EnergyPoints--;
     this->_AttackDamage++;
     std::cout << "ClapTrap " << this->_Name << " attacks " << target << ", causing " << this->_AttackDamage << " points of damage!\n\n";
-    std::cout << std::left << std::setw(20) <<"Name : " << this->_Name << "\n";
-    std::cout << std::left << std::setw(20) <<"EnergyPoints : " << this->_EnergyPoints << "\n";
-    std::cout << std::left << std::setw(20) <<"HitPoints : " << this->_HitPoints << "\n";
-    std::cout << std::left << std::setw(20) <<"AttackDamage : " << this->_AttackDamage << "\n\n";
 }
 
 void    ClapTrap::takeDamage(unsigned int amount)
@@ -146,10 +142,6 @@ void    ClapTrap::takeDamage(unsigned int amount)
     this->_EnergyPoints -= amount;
     std::cout << this->_Name << " Take a Damage cost him " << amount << " Energy points\n";
     std::cout << Yellow <<"Warning you have " << this->_EnergyPoints << " Energy Points left\n" << Reset;
-    std::cout << std::left << std::setw(20) <<"Name : " << this->_Name << "\n";
-    std::cout << std::left << std::setw(20) <<"EnergyPoints : " << this->_EnergyPoints << "\n";
-    std::cout << std::left << std::setw(20) <<"HitPoints : " << this->_HitPoints << "\n";
-    std::cout << std::left << std::setw(20) <<"AttackDamage : " << this->_AttackDamage << "\n\n";
 }
 
 void    ClapTrap::beRepaired(unsigned int amount)
@@ -157,10 +149,6 @@ void    ClapTrap::beRepaired(unsigned int amount)
     this->_EnergyPoints += amount;
     std::cout << " ... " << this->_Name << " Repaired with " << amount << "Points of Energy\n";
     std::cout << "You Have now " << this->_EnergyPoints << " Energy Points\n\n";
-    std::cout << std::left << std::setw(20) <<"Name : " << this->_Name << "\n";
-    std::cout << std::left << std::setw(20) <<"EnergyPoints : " << this->_EnergyPoints << "\n";
-    std::cout << std::left << std::setw(20) <<"HitPoints : " << this->_HitPoints << "\n";
-    std::cout << std::left << std::setw(20) <<"AttackDamage : " << this->_AttackDamage << "\n\n";
 }
 
         //                                              ___
@@ -186,4 +174,4 @@ void    ClapTrap::beRepaired(unsigned int amount)
         //                                                 |     |  |     |
         //                                                 |/~~~\|  |/~~~\|
         //                                                 /|___|\  /|___|\
-        //  
+        //                                                <_______><_______>
