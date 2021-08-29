@@ -73,40 +73,40 @@ ScavTrap::~ScavTrap()
     std::cout << "ScavTrap Deconstructor called\n";
 }
 
-void    ScavTrap::attack(std::string const & target)
-{
-    std::cout << Green << "\n\n";
-    std::cout << "ScavTrap attack\n";
-    std::cout << "      ----.                                                                 ___                                  \n";
-    std::cout << "    \"   _}                                                                |_|_|                                 \n";
-    std::cout << "    \"@   >                                                                |_|_|              _____              \n";
-    std::cout << "    |\\   7                                                                |_|_|     ____    |*_*_*|             \n";
-    std::cout << "    / `-- _  " << target << "  ,-----                           __________ _______   _\\__\\___/ __ \\____|_|_   _______     \n";
-    std::cout << " ~    >o<  \\---------o{__             _____________|          / ____  |=|      \\  <_+>  /      |=|  ____ \\    \n";
-    std::cout << "/  |  \\  /  ________/8'     ********__ ___ ___ ___ _________  ~|    |\\|=|======\\______//======|=|/|    |~    \n";
-    std::cout << "|  |       /           \"                                         | ___|     \\      |      |      /    |    |     \n";
-    std::cout << "|  /      |                                                                  \\     |"<< std::setw(6)<<this->_Name <<"|     /     |----|~~/  \n";
-    std::cout << "                                                                              |    |      |    |      |____/~/   \n";
-    std::cout << "                                                                               \\____\\____/____/      /    / /    \n";
-    std::cout << "                                                                                {----------}       /____/ /     \n";
-    std::cout << "                                                                               /~~~~~~~~~~~~\\     |_/~|_|/      \n";
-    std::cout << "                                                                              |/~~~~~||~~~~~\\|     /__|\\        \n";
-    std::cout << "                                                                               |    ||||    |     (/|| \\)       \n";
-    std::cout << "                                                                              /     |  |     \\       \\\\         \n";
-    std::cout << "                                                                              |     |  |     |                  \n";
-    std::cout << "                                                                              |_____|  |_____|                  \n";
-    std::cout << "                                                                              (_____)  (_____)                  \n";
-    std::cout << "                                                                              |     |  |     |                  \n";
-    std::cout << "                                                                              |     |  |     |                  \n";
-    std::cout << "                                                                              |/~~~\\|  |/~~~\\|                  \n";
-    std::cout << "                                                                              /|___|\\  /|___|\\                  \n";
-    std::cout << "                                                                             <_______><_______>                 \n";
-    std::cout << Reset <<"\n\n";
-    this->_HitPoints--;
-    //this->_EnergyPoints--;
-    this->_AttackDamage++;
-    std::cout << "ScavTrap " << this->_Name << " attacks " << target << ", causing " << this->_AttackDamage << " points of damage!\n\n";
-}
+// void    ScavTrap::attack(std::string const & target)
+// {
+//     std::cout << Green << "\n\n";
+//     std::cout << "ScavTrap attack\n";
+//     std::cout << "      ----.                                                                 ___                                  \n";
+//     std::cout << "    \"   _}                                                                |_|_|                                 \n";
+//     std::cout << "    \"@   >                                                                |_|_|              _____              \n";
+//     std::cout << "    |\\   7                                                                |_|_|     ____    |*_*_*|             \n";
+//     std::cout << "    / `-- _  " << target << "  ,-----                           __________ _______   _\\__\\___/ __ \\____|_|_   _______     \n";
+//     std::cout << " ~    >o<  \\---------o{__             _____________|          / ____  |=|      \\  <_+>  /      |=|  ____ \\    \n";
+//     std::cout << "/  |  \\  /  ________/8'     ********__ ___ ___ ___ _________  ~|    |\\|=|======\\______//======|=|/|    |~    \n";
+//     std::cout << "|  |       /           \"                                         | ___|     \\      |      |      /    |    |     \n";
+//     std::cout << "|  /      |                                                                  \\     |"<< std::setw(6)<<this->_Name <<"|     /     |----|~~/  \n";
+//     std::cout << "                                                                              |    |      |    |      |____/~/   \n";
+//     std::cout << "                                                                               \\____\\____/____/      /    / /    \n";
+//     std::cout << "                                                                                {----------}       /____/ /     \n";
+//     std::cout << "                                                                               /~~~~~~~~~~~~\\     |_/~|_|/      \n";
+//     std::cout << "                                                                              |/~~~~~||~~~~~\\|     /__|\\        \n";
+//     std::cout << "                                                                               |    ||||    |     (/|| \\)       \n";
+//     std::cout << "                                                                              /     |  |     \\       \\\\         \n";
+//     std::cout << "                                                                              |     |  |     |                  \n";
+//     std::cout << "                                                                              |_____|  |_____|                  \n";
+//     std::cout << "                                                                              (_____)  (_____)                  \n";
+//     std::cout << "                                                                              |     |  |     |                  \n";
+//     std::cout << "                                                                              |     |  |     |                  \n";
+//     std::cout << "                                                                              |/~~~\\|  |/~~~\\|                  \n";
+//     std::cout << "                                                                              /|___|\\  /|___|\\                  \n";
+//     std::cout << "                                                                             <_______><_______>                 \n";
+//     std::cout << Reset <<"\n\n";
+//     this->_HitPoints--;
+//     //this->_EnergyPoints--;
+//     this->_AttackDamage++;
+//     std::cout << "ScavTrap " << this->_Name << " attacks " << target << ", causing " << this->_AttackDamage << " points of damage!\n\n";
+// }
 
 void    ScavTrap::guardGate()
 {

@@ -80,7 +80,7 @@ ClapTrap::~ClapTrap()
 void    ClapTrap::attack(std::string const & target)
 {
     std::cout << Green << "\n\n";
-    std::cout << "Claptrap attack\n";
+    //std::cout << "Claptrap attack\n";
     std::cout << "      ----.                                                                 ___                                  \n";
     std::cout << "    \"   _}                                                                |_|_|                                 \n";
     std::cout << "    \"@   >                                                                |_|_|              _____              \n";
