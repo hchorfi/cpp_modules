@@ -18,16 +18,7 @@ Character::Character(std::string name) : _Name(name)
 
 Character::Character(const Character& copy)
 {
-    this->_Name = copy._Name;
-    for (int i = 0; i < 4; i++)
-    {
-        if (copy._MateriasInv[i]) //if the inventory not empty
-        {
-            this->_MateriasInv[i] = copy._MateriasInv[i]; 
-        }
-        else
-            this->_MateriasInv[i] = NULL;
-    }
+    *this = copy;
 }
 
 Character& Character::operator = (const Character& other)
