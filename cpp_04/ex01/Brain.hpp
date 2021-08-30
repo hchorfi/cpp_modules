@@ -13,7 +13,7 @@ class   Brain
         ~Brain();
         void setIdea(int i, std::string idea);
         std::string getIdea(int i);
-    
+
     protected:
         std::string ideas[100];
 };

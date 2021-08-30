@@ -42,7 +42,7 @@ void    Animal::makeSound() const
 ** Dog Class
 */
 
-Dog::Dog()
+Dog::Dog() 
 {
     std::cout << "Dog Default constructor called\n";
     this->type = "Dog";
@@ -61,8 +61,8 @@ Dog& Dog::operator = (const Dog& dog)
     if (this != &dog)
     {
         this->type = dog.type;
-        if (this->brain)
-            delete this->brain;
+        //if (this->brain)
+        //  delete this->brain;
         this->brain = new Brain();
         for (int i = 0; i < 100; i++)
         {
@@ -115,7 +115,18 @@ Cat& Cat::operator = (const Cat& cat)
 {
     std::cout << "Cat Assignement constructor called\n";
     if (this != &cat)
+    {
         this->type = cat.type;
+        //if (this->brain)
+        //  delete this->brain;
+        this->brain = new Brain();
+        for (int i = 0; i < 100; i++)
+        {
+            this->brain->setIdea(i, cat.brain->getIdea(i));
+        }
+        //this->brain = dog.brain;
+    }
+    return *this;
     return *this;
 }
 
@@ -128,4 +139,14 @@ Cat::~Cat()
 void    Cat::makeSound() const
 {
     std::cout << "I am a Cat, Meawwwwww... \n";
+}
+
+void Cat::setIdea(int i, std::string idea)
+{
+    this->brain->setIdea(i, idea);
+}
+
+std::string Cat::getIdea(int i)
+{
+    return this->brain->getIdea(i);
 }

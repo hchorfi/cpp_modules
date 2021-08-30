@@ -28,7 +28,7 @@ class   Animal
         virtual ~Animal();
         std::string getType() const;
         virtual void    makeSound() const;
-    
+
     protected:
         std::string type;
 };
@@ -64,6 +64,8 @@ class   Cat: public Animal
         Cat& operator = (const Cat& cat);
         ~Cat();
         virtual void    makeSound() const;
+        void setIdea(int i, std::string idea);
+        std::string getIdea(int i);
 
     private:
         Brain* brain;
