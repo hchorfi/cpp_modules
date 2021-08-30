@@ -28,3 +28,13 @@ Brain::~Brain()
 {
     std::cout << "Brain Destructor called\n";
 }
+
+void Brain::setIdea(int i, std::string idea)
+{
+    this->ideas[i] = idea;
+}
+
+std::string Brain::getIdea(int i)
+{
+    return this->ideas[i];
+}
