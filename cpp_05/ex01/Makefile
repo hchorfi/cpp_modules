@@ -1,7 +1,8 @@
 NAME = bureucrat
 
 SRCS = main.cpp\
-		Bureaucrat.cpp
+		Bureaucrat.cpp\
+		Form.cpp
 
 FLAGS = -Wall -Wextra -Werror
 

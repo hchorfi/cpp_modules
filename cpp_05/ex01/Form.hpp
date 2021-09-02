@@ -6,6 +6,7 @@
 #include <stdexcept>
 #include "Bureaucrat.hpp"
 
+class Bureaucrat;
 class Form
 {
     private:
@@ -37,5 +38,8 @@ class Form
                 virtual const char* what() const throw();
         };
 };
+
+std::ostream& operator << (std::ostream& os, Form &obj);
+
 
 #endif

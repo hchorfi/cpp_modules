@@ -1,7 +1,9 @@
 #include "Form.hpp"
 
-Form::Form()
+// you need to  
+Form::Form() : _Name("no name"), _signGrade(1), _execGrade(1)
 {
+    this->_Signed = false;
     std::cout << "Default Form Constructor\n";
 }
 
@@ -34,7 +36,7 @@ Form& Form::operator = (const Form& other)
 
 Form::~Form()
 {
-    std::cout << "Default Form Deonstructor\n";
+    std::cout << "Default Form " << this->_Name << " Deconstructor\n";
 }
 
 std::string Form::getName()
@@ -61,5 +63,28 @@ void    Form::beSigned(Bureaucrat& bureaucrat)
 {
     if (bureaucrat.getGrade() > this->_signGrade)
         throw Form::GradeTooLowException();
+
     this->_Signed = true;
+}
+
+const char* Form::GradeTooHighException::what() const throw()
+{
+    return ("Form Grade too High\n");
+}
+
+const char* Form::GradeTooLowException::what() const throw()
+{
+    return ("Form Grade too Low\n");
+}
+
+std::ostream& operator << (std::ostream& os, Form &obj)
+{
+    os << "Form name: " << obj.getName() << ".\n";
+    os << "Form Sign grade: " << obj.getSignGrade() << ".\n";
+    os << "Form Execute grade: " << obj.getExecGrade() << ".\n";
+    if (obj.isSigned())
+        os << "Signed.\n";
+    else
+        os << "!signed.\n";
+    return os;
 }

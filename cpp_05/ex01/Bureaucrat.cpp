@@ -29,7 +29,7 @@ Bureaucrat & Bureaucrat::operator = (Bureaucrat const & other)
 
 Bureaucrat::~Bureaucrat()
 {
-    //std::cout << "Bureaucrat Default deconstructor";
+    std::cout << "Bureaucrat " << this->_Name << " Default deconstructor\n";
 }
 
 void Bureaucrat::decrementGrade()
@@ -58,20 +58,23 @@ std::string Bureaucrat::getName()
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-    return ("Bureaucrat Grade to High\n");
+    return ("Bureaucrat Grade too High\n");
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-    return ("Bureaucrat Grade to Low\n");
+    return ("Bureaucrat Grade too Low\n");
 }
 
 void    Bureaucrat::signForm(Form &form)
 {
-    if (this->getGrade() < form.getSignGrade())
-    {
-        std::cout << this->_Name << "signs" << form.getName() << "\n";
-        
+    if (form.isSigned()) {
+        std::cout << this->_Name << " cannot sign " << form.getName() << " because " << "it's alredy signed\n";
+    } else if (this->getGrade() > form.getSignGrade()){
+        std::cout << this->_Name << " cannot sign " << form.getName() << " because " << "grade too low\n";
+    } else {
+        std::cout << this->_Name << " signs " << form.getName() << "\n";
+        form.beSigned(*this);
     }
 }
 
