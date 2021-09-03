@@ -2,11 +2,11 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm()
 {
-
+    //std::cout << "ShrubberyCreationForm Default constructor\n";
 }
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string target) : Form("ShrubberyCreationForm", 145, 137), _Target(target)
 {
-
+    //std::cout << this->getName() << " constructor\n";
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& copy)
@@ -25,15 +25,18 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator = (const ShrubberyCreatio
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-    std::cout << this->getName() << " Deconstructor\n";
+    //std::cout << this->getName() << " Deconstructor\n";
 }
 
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
-    if (executor.getGrade() > this->getExecGrade())
-        throw Form::GradeTooLowException();
-    if (!this->isSigned())
-        throw Form::AlredySignedException();
+    if (executor.getGrade() > this->getExecGrade() || !this->isSigned())
+    {
+        std::cout << this->getName() << " cannot be executed because ";
+        if (executor.getGrade() > this->getExecGrade())
+            throw Form::GradeTooLowException();
+        throw Form::notSignedException();
+    }
     std::ofstream output;
     output.open(this->_Target + "_shrubbery");
     output << "                  * * \n";
@@ -53,4 +56,5 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
     output << "              ;### \n";
     output << "            ,####. \n";
     output << "/\\/\\/\\/\\/\\/.######.\\/\\/\\/\\/\\ \n";
+    output.close();
 }

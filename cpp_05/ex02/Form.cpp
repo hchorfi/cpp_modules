@@ -4,7 +4,7 @@
 Form::Form() : _Name("no name"), _signGrade(1), _execGrade(1)
 {
     this->_Signed = false;
-    std::cout << "Default Form Constructor\n";
+    //std::cout << "Default Form Constructor\n";
 }
 
 Form::Form(const std::string name, const int signGrade, const int execGrade) : _Name(name), _signGrade(signGrade), _execGrade(execGrade), _Signed(false)
@@ -36,10 +36,10 @@ Form& Form::operator = (const Form& other)
 
 Form::~Form()
 {
-    std::cout << "Default Form " << this->_Name << " Deconstructor\n";
+    //std::cout << "Default Form " << this->_Name << " Deconstructor\n";
 }
 
-std::string Form::getName()
+std::string Form::getName() const
 {
     return this->_Name;
 }
@@ -73,17 +73,20 @@ void    Form::beSigned(Bureaucrat& bureaucrat)
 
 const char* Form::GradeTooHighException::what() const throw()
 {
+    std::cout << Red;
     return ("Form Grade too High\n");
 }
 
 const char* Form::GradeTooLowException::what() const throw()
 {
+    std::cout << Red;
     return ("Form Grade too Low\n");
 }
 
-const char* Form::AlredySignedException::what() const throw()
+const char* Form::notSignedException::what() const throw()
 {
-    return ("Alredy signed\n");
+    std::cout << Red;
+    return ("!signed\n");
 }
 
 std::ostream& operator << (std::ostream& os, Form &obj)

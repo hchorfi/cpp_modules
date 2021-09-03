@@ -2,11 +2,12 @@
 
 Bureaucrat::Bureaucrat()
 {
-    std::cout << "Bureaucrat Default constructor";
+    //std::cout << "Bureaucrat Default constructor";
 }
 
 Bureaucrat::Bureaucrat(const std::string name, int grade) : _Name(name), _Grade(grade)
 {
+    //std::cout << this->_Name << " constructor\n";
     if (this->_Grade < 1)
         throw Bureaucrat::GradeTooHighException();
     if (this->_Grade > 150)
@@ -29,7 +30,7 @@ Bureaucrat & Bureaucrat::operator = (Bureaucrat const & other)
 
 Bureaucrat::~Bureaucrat()
 {
-    std::cout << "Bureaucrat " << this->_Name << " Default deconstructor\n";
+    //std::cout << "Bureaucrat " << this->_Name << " Default deconstructor\n";
 }
 
 void Bureaucrat::decrementGrade()
@@ -75,6 +76,22 @@ void    Bureaucrat::signForm(Form &form)
     } else {
         std::cout << this->_Name << " signs " << form.getName() << "\n";
         form.beSigned(*this);
+    }
+}
+
+void Bureaucrat::executeForm(Form const & form)
+{
+    // if (this->getGrade() > form.getExecGrade()){
+    //     std::cout << this->_Name << " cannot execute " << form.getName() << " because " << "grade too low\n";
+    // } else {
+    //     std::cout << this->_Name << " execute " << form.getName() << "\n";
+    //     form.execute(*this);
+    // }
+    try{ // It must attempt to execute the form
+        form.execute(*this);
+        std::cout << this->_Name << " execute " << form.getName() << "\n";
+    } catch (std::exception &e){
+        std::cout << e.what() << Reset;
     }
 }
 
