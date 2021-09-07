@@ -45,12 +45,19 @@ void    Convert::printValues()
 Convert::operator int() 
 {
     try{
-        int intValue = std::stoi(_Value);
-        std::cout << "int: " << intValue << "\n";
-        if (std::isprint(intValue))
-            std::cout << "char: '" << static_cast<char>(intValue) << "'\n";
-        else
-            throw std::string("char: Non displayable\n");
+        if (_Value.length() == 1)
+        {
+            std::cout << "int: " << static_cast<int>(_Value[0])<< "\n";
+            std::cout << "char: '" << static_cast<char>(_Value[0])<< "'\n";
+        } else 
+        {
+            int intValue = std::stoi(_Value);
+            std::cout << "int: " << intValue << "\n";
+            if (std::isprint(intValue))
+                std::cout << "char: '" << static_cast<char>(intValue) << "'\n";
+            else
+                throw std::string("char: Non displayable\n");
+        }
     } catch (std::invalid_argument){
         std::cout << "int: impossible\n";
         std::cout << "char: impossible\n";
@@ -72,8 +79,13 @@ Convert::operator int()
 Convert::operator double() 
 {
     try{
-        double doubleValue = std::stod(_Value);
-        std::cout << "double: " << std::fixed <<std::setprecision(1) << doubleValue << "\n";
+        if (_Value.length() == 1)
+        {
+            std::cout << "double: " << std::fixed <<std::setprecision(1) << static_cast<double>(_Value[0])<< "\n";
+        } else {
+            double doubleValue = std::stod(_Value);
+            std::cout << "double: " << std::fixed <<std::setprecision(1) << doubleValue << "\n";
+        }
     } catch (std::invalid_argument){
         std::cout << "double: impossible\n";
     } catch (std::out_of_range){
@@ -85,8 +97,13 @@ Convert::operator double()
 Convert::operator float() 
 {
     try{
-        float floatValue = std::stof(_Value);
-        std::cout << "float: " << std::fixed <<std::setprecision(1) << floatValue << "f\n";
+        if (_Value.length() == 1)
+        {
+            std::cout << "float: " << std::fixed <<std::setprecision(1) << static_cast<float>(_Value[0])<< "f\n";
+        } else {
+            float floatValue = std::stof(_Value);
+            std::cout << "float: " << std::fixed <<std::setprecision(1) << floatValue << "f\n";
+        }
     } catch (std::invalid_argument){
         std::cout << "float: impossible\n";
     } catch (std::out_of_range){
