@@ -7,7 +7,7 @@
 template <typename T>
 void increment(T *arr, int i)
 {
-    std::cout << arr[i] << "\n";
+    std::cout << "'" << arr[i] << "'\n";
 }
 
 template <typename T>
