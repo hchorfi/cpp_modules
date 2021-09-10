@@ -37,6 +37,8 @@ int main( void ) {
     std::cout << "Min -> Fixed(3) - Fixed(2.3f) " <<Fixed::min( Fixed(3), Fixed(2.3f) ) << std::endl;
     std::cout << "Max -> Fixed(3) - Fixed(2.3f) " <<Fixed::max( Fixed(3), Fixed(2.3f) ) << std::endl;
 
+    Fixed r(5.14f);
+    std::cout << r.getRawBits() << std::endl;
     return 0;
 }
 

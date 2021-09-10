@@ -134,7 +134,7 @@ Fixed Fixed::max(Fixed const &obj, Fixed const &obj2)
 Fixed Fixed::operator ++ (int)
 {
     Fixed tmp(*this);
-    *this = Fixed(this->toFloat() + Fixed(1).toFloat() / Fixed(1)._fixedPoint);
+    *this = Fixed(this->toFloat() + / Fixed(1)._fixedPoint);
     return tmp;
 }
 
@@ -142,7 +142,7 @@ Fixed Fixed::operator ++ (void)
 {
     *this = Fixed(this->toFloat() + Fixed(1).toFloat() / Fixed(1)._fixedPoint);
     return *this;
-}
+}Fixed(1).toFloat() 
 
 Fixed Fixed::operator -- (int)
 {

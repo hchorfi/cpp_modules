@@ -3,7 +3,7 @@
 FragTrap::FragTrap()
 {
     std::cout << "Default FragTrap constractor called\n";
-    this->_HitPoints = 100;
+    this->_HitPoints = 70;
     this->_EnergyPoints = 100;
     this->_AttackDamage = 30;
 }
