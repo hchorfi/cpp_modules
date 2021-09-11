@@ -48,13 +48,14 @@ class Array
             } else {
                 try {
                     this->_Arr = new T[copy._Size]; // size n T type array 
-                    for (int i = 0; i < copy._Size ; i++)
-                        this->_Arr[i] = T(); //initialize by default value 
+                    for (unsigned int i = 0; i < copy._Size ; i++)
+                        this->_Arr[i] = copy._Arr[i]; //copy values
                     this->_Size = copy._Size;
                 } catch (const std::bad_alloc& e) {
                     std::cout << "Allocation failed: " << e.what() << '\n';
                 }
             }
+            return *this;
         }
 
         unsigned int Size() const{
@@ -80,7 +81,7 @@ template <typename T>
 std::ostream& operator << (std::ostream& os, Array<T> &obj){
     unsigned int j = obj.Size();
     T *ptr = obj.getArr();
-
+    os << "size : " << j << "\n";
     for (unsigned int i = 0; i < j ; i ++){
         os << "'" << ptr[i] << "'\n";
     }
