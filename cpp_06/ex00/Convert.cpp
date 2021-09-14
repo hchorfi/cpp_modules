@@ -47,9 +47,16 @@ Convert::operator int()
     try{
         if (_Value.length() == 1)
         {
-            std::cout << "int: " << static_cast<int>(_Value[0])<< "\n";
-            std::cout << "char: '" << static_cast<char>(_Value[0])<< "'\n";
-        } else 
+            if (static_cast<int>(_Value[0]) >= 48 && static_cast<int>(_Value[0]) <= 57 )
+            {
+                std::cout << "int: " << std::stoi(_Value)<< "\n";
+                std::cout << "char: Non displayable\n" << static_cast<char>(_Value[0]);
+            } else 
+            {
+                std::cout << "int: " << static_cast<int>(_Value[0])<< "\n";
+                std::cout << "char: '" << static_cast<char>(_Value[0])<< "'\n";
+            }
+        } else
         {
             int intValue = std::stoi(_Value);
             std::cout << "int: " << intValue << "\n";
@@ -79,7 +86,7 @@ Convert::operator int()
 Convert::operator double() 
 {
     try{
-        if (_Value.length() == 1)
+        if (_Value.length() == 1 )
         {
             std::cout << "double: " << std::fixed <<std::setprecision(1) << static_cast<double>(_Value[0])<< "\n";
         } else {
