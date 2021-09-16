@@ -38,8 +38,14 @@ Span& Span::operator = (const Span& copy)
 
 int Span::shortestSpan()
 {
+    int diff = INT_MAX;
     std::sort(myVect.begin(), myVect.end());
-    return myVect[1] - myVect[0];
+    for (size_t i = 0; i < myVect.size() - 1; i++)
+    {
+        if (myVect[i + 1] - myVect[i] < diff)
+            diff = myVect[i + 1] - myVect[i];
+    }
+    return diff;
 }
 
 int Span::longestSpan()
