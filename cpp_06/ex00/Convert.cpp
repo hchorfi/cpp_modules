@@ -50,7 +50,7 @@ Convert::operator int()
             if (static_cast<int>(_Value[0]) >= 48 && static_cast<int>(_Value[0]) <= 57 )
             {
                 std::cout << "int: " << std::stoi(_Value)<< "\n";
-                std::cout << "char: Non displayable\n" << static_cast<char>(_Value[0]);
+                std::cout << "char: Non displayable\n";
             } else 
             {
                 std::cout << "int: " << static_cast<int>(_Value[0])<< "\n";
@@ -88,7 +88,13 @@ Convert::operator double()
     try{
         if (_Value.length() == 1 )
         {
-            std::cout << "double: " << std::fixed <<std::setprecision(1) << static_cast<double>(_Value[0])<< "\n";
+            if (static_cast<int>(_Value[0]) >= 48 && static_cast<int>(_Value[0]) <= 57 )
+            {
+                std::cout << "double: " << std::stod(_Value)<< "\n";
+            } else 
+            {
+                std::cout << "double: " << std::fixed <<std::setprecision(1) << static_cast<double>(_Value[0])<< "\n";
+            }
         } else {
             double doubleValue = std::stod(_Value);
             std::cout << "double: " << std::fixed <<std::setprecision(1) << doubleValue << "\n";
@@ -106,7 +112,13 @@ Convert::operator float()
     try{
         if (_Value.length() == 1)
         {
-            std::cout << "float: " << std::fixed <<std::setprecision(1) << static_cast<float>(_Value[0])<< "f\n";
+            if (static_cast<int>(_Value[0]) >= 48 && static_cast<int>(_Value[0]) <= 57 )
+            {
+                std::cout << "float: " << std::stof(_Value)<< "f\n";
+            } else 
+            {
+                std::cout << "float: " << std::fixed <<std::setprecision(1) << static_cast<float>(_Value[0])<< "f\n";
+            }
         } else {
             float floatValue = std::stof(_Value);
             std::cout << "float: " << std::fixed <<std::setprecision(1) << floatValue << "f\n";
