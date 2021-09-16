@@ -1,14 +1,14 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap()
+ScavTrap::ScavTrap() //: ClapTrap("Name" , 100, 50, 20)
 {
     std::cout << "Default ScavTrap constractor called\n";
-    this->_HitPoints = 100;
-    this->_EnergyPoints = 50;
-    this->_AttackDamage = 20;
+    // this->_HitPoints = 100;
+    // this->_EnergyPoints = 50;
+    // this->_AttackDamage = 20;
 }
 
-ScavTrap::ScavTrap(std::string Name)
+ScavTrap::ScavTrap(std::string Name) //: ClapTrap(Name , 100, 50, 20)
 {
     this->_Name = Name;
     this->_HitPoints = 100;

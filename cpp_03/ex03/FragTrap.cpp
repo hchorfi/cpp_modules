@@ -1,6 +1,6 @@
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap()
+FragTrap::FragTrap() //: ClapTrap("Name" , 70, 100, 30)
 {
     std::cout << "Default FragTrap constractor called\n";
     this->_HitPoints = 70;
@@ -8,10 +8,10 @@ FragTrap::FragTrap()
     this->_AttackDamage = 30;
 }
 
-FragTrap::FragTrap(std::string Name)
+FragTrap::FragTrap(std::string Name) //: ClapTrap(Name , 70, 100, 30)
 {
     this->_Name = Name;
-    this->_HitPoints = 100;
+    this->_HitPoints = 70;
     this->_EnergyPoints = 100;
     this->_AttackDamage = 30;
 

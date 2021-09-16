@@ -14,6 +14,11 @@ DiamondTrap::DiamondTrap(std::string name) : _Name(name)
     this->_HitPoints = FragTrap::_HitPoints;
     this->_EnergyPoints = ScavTrap::_EnergyPoints;
     this->_AttackDamage = FragTrap::_AttackDamage;
+    std::cout << std::left << std::setw(20) <<"Name : " << this->_Name << "\n";
+    std::cout << std::left << std::setw(20) <<"EnergyPoints : " << this->_EnergyPoints << "\n";
+    std::cout << std::left << std::setw(20) <<"HitPoints : " << this->_HitPoints << "\n";
+    std::cout << std::left << std::setw(20) <<"AttackDamage : " << this->_AttackDamage << "\n";
+    std::cout << "\n\n";
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& copy)

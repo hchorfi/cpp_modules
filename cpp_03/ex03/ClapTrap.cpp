@@ -1,18 +1,30 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap()
+ClapTrap::ClapTrap() : _HitPoints(10), _EnergyPoints(10), _AttackDamage(0)
 {
     std::cout << "Default Claptrap constractor called\n";
-    this->_HitPoints = 10;
-    this->_EnergyPoints = 10;
-    this->_AttackDamage = 0;
+    // this->_HitPoints = 10;
+    // this->_EnergyPoints = 10;
+    // this->_AttackDamage = 0;
 }
 
-ClapTrap::ClapTrap(std::string Name) : _Name(Name)
+// ClapTrap::ClapTrap(std::string name) : _Name(name) ,  _HitPoints(10) ,_EnergyPoints(10) , _AttackDamage(0) {
+//     std::cout << "Parametric constructor called from ClapTrap" << std::endl;
+// }
+
+ClapTrap::ClapTrap(std::string  name , int  hitPoints , int  energyPoints , int  attackDamage){
+    std::cout << "constructor called from ClapTrap" << std::endl;
+    this->_Name = name;
+    this->_HitPoints = hitPoints;
+    this->_EnergyPoints = energyPoints;
+    this->_AttackDamage = attackDamage;
+}
+
+ClapTrap::ClapTrap(std::string Name) : _Name(Name) ,  _HitPoints(10) ,_EnergyPoints(10) , _AttackDamage(0)
 {
-    this->_HitPoints = 10;
-    this->_EnergyPoints = 10;
-    this->_AttackDamage = 0;
+    // this->_HitPoints = 10;
+    // this->_EnergyPoints = 10;
+    // this->_AttackDamage = 0;
 
     std::cout << "\n\n";
     std::cout << "Claptrap string constractor called\n";

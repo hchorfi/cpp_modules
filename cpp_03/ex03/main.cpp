@@ -5,7 +5,7 @@
 int main()
 {
     // ClapTrap clapdef;
-    // ClapTrap clap("Hamza");
+    ClapTrap clap("Hamza");
     // ClapTrap clap2("Hamza2");
     // clapdef = clap2;
     // clap.takeDamage(2);
@@ -14,13 +14,13 @@ int main()
     // std::cout << "-----------\n";
     // ScavTrap scavdef;
     // ScavTrap scav("Hamza");
-    // ScavTrap scav2("Hamza2");
+    ScavTrap scav2("Hamza2");
     // scavdef = scav2;
     // scav.takeDamage(3);
     // scav.attack("Devza");
     // scav.beRepaired(7);
     // scav.guardGate();
-    // FragTrap frag("frrrag");
+    FragTrap frag("frrrag");
     // frag.highFivesGuys();
     // frag.attack("Devza");
     // frag.takeDamage(4);
