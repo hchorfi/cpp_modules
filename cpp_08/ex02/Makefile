@@ -2,7 +2,7 @@ NAME = ex02
 
 SRCS = main.cpp #mutantstack.cpp
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS =-Wall -Wextra -Werror
 
 all: $(NAME)
 

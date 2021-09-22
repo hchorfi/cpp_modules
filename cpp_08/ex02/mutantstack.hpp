@@ -13,7 +13,7 @@ class Mutantstack : public std::stack <T, Container>
     private:
         
     public:
-        typedef typename Mutantstack<T, Container>::container_type::iterator iterator;
+        typedef typename Mutantstack<T>::container_type::iterator iterator;
         Mutantstack(){};
         ~Mutantstack(){};
         Mutantstack(const Mutantstack<T, Container> &copy) : std::stack <T, Container>(copy){
@@ -29,6 +29,17 @@ class Mutantstack : public std::stack <T, Container>
         iterator end(){
             return this->c.end();
         };
+        // void push (const T &val)
+        // {
+        //     this->c.push_front(val);
+        // }
+        // void pop ()
+        // {
+        //     this->c.pop_front();
+        // }
+        // T& top(){
+        //     return this->c.front();
+        // }
 };
 
 #endif
